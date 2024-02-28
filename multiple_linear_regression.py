@@ -32,5 +32,5 @@ model.fit(diabetes_X_train,diabetes_Y_train)
 diabetes_Y_predicted=model.predict(diabetes_X_test)
 
 print("Mean Squared Error(Avg. of Sum of Squared Error): ",mean_squared_error(diabetes_Y_test,diabetes_Y_predicted))
-print("Weights: ",model.coef_)
-print("Intercept: ",model.intercept_)
+print("Weights(m): ",model.coef_)
+print("Intercept(b): ",model.intercept_)
