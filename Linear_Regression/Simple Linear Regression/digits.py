@@ -1,0 +1,45 @@
+#Machine Learning Model(Simple Linear Regression) for Single Feature in Digits Datasets
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error
+
+# Importing Datasets
+digits = datasets.load_digits()
+# Checking what's inside the Dataset
+print(digits.keys())
+
+# For single feature available in the Datasets
+digits_X = digits.data[:, np.newaxis, 2]
+# Printing a Numpy array(Arrays of array) in a single column
+print(digits_X)
+
+# Extracting all elements except the last 30 for training
+digits_X_train = digits_X[:-30]
+# Extracting only the last 30 elements for testing
+digits_X_test = digits_X[-30:]
+# Selecting the target values corresponding to the training instances
+digits_Y_train = digits.target[:-30]
+# Selecting the target values for the testing set
+digits_Y_test = digits.target[-30:]
+
+# Creating a Linear Model and importing LinearRegression
+model = linear_model.LinearRegression()
+
+# Drawing a Line from the data which will be saved in the Model
+model.fit(digits_X_train, digits_Y_train)
+
+# Predicting the values from the line in the Graph, whenever Features will be given
+digits_Y_predicted = model.predict(digits_X_test)
+
+print("Mean Squared Error (Avg. of Sum of Squared Error): ", mean_squared_error(digits_Y_test, digits_Y_predicted))
+print("Weights (m): ", model.coef_)
+print("Intercept (b): ", model.intercept_)
+
+# Scatter Points Plotting
+plt.scatter(digits_X_test, digits_Y_test)
+# Line Plotting
+plt.plot(digits_X_test, digits_Y_predicted)
+plt.show()

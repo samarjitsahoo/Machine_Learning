@@ -1,4 +1,4 @@
-'''Machine Learning Model(Testing Linear Regression) for Single Feature in the Datasets
+'''Machine Learning Model(Testing Linear Regression) for Single Feature in Diabetes Datasets
 Given: X=1,2,3(Feature)
 Given: Y=3,2,4(Label)'''
 
